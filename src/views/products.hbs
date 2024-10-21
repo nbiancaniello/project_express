@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+</head>
+<body>
+  <header>
+    {{> header }}
+  </header>
+  <h1> Products </h1>
+  <ul>
+    {{#each products}}
+    <li> 
+      <h2> {{description}}</h2>
+      <p> Price: {{price}}</p>
+      <p> Category: {{category}}</p>
+      <p> Stock: {{inStock}}</p>
+      <p> Promotion: {{isPromotion}}</p>
+      <p> New Arrival: {{isNewArrival}}</p>
+      {{#if image}}
+        <img src="./uploads/{{image}}" alt={{description}} style="max-width: 200px;">
+      {{/if}}
+          <a href="/products/edit/{{this._id}}">Edit</a>
+          <a href="/products/delete/{{this._id}}">Delete</a>
+    </li>
+          {{/each}}
+  </ul>
+  
+</body>
+</html>
